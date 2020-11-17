@@ -13,8 +13,22 @@ public class FindTheRedThread {
      * Print rules at the start of the game
      */
     public static void printRules(){
-        System.out.println("Place 20 threads in a box, choose a number 1 - 10 inclusive to represent thread pulls per-turn. While alternating turns, select previously declared number of threads to be pulled by using a corresponding number(s) 1-20. Winner is declared once the red thread is found.");
-        System.out.println("");
+        System.out.println("\t|-------------------------------------------------------------------------------------------|");
+        System.out.println("\t|                    Welcome to Find the Red Thread                                         |");
+        System.out.println("\t|                                                                                           |");
+        System.out.println("\t|           Please read the description of the game here:                                   |");
+        System.out.println("\t|           1-Place 20 threads in a box, choose a number 1 - 10 inclusive                   |");
+        System.out.println("\t|            to represent thread pulls per-turn.                                            |");
+        System.out.println("\t|                                                                                           |");
+        System.out.println("\t|         2-While alternating turns, select previously declared number of threads           |");
+        System.out.println("\t|             to be pulled by using a corresponding number(s) 1-20.                         |");
+        System.out.println("\t|                                                                                           |");
+        System.out.println("\t|          3- Winner is declared once the red thread is found.                              |");
+        System.out.println("\t|                                                                                           |");
+        System.out.println("\t|                                                                                           |");
+        System.out.println("\t|-------------------------------------------------------------------------------------------|");
+        System.out.println();
+        System.out.println();
     }
 
     /*
@@ -124,6 +138,9 @@ public class FindTheRedThread {
         }
     }
 
+    /*
+     * This method updates score for the game of games scoreboard
+     */ 
     public static void updateScoreboard(){
         if(userTurn){
             Scoreboard.userFindTheRedThreadScore++;
@@ -151,7 +168,7 @@ public class FindTheRedThread {
         while(!validInput){
             try{
             userInput = GetInput.numericInput();
-            if(userInput >= 1 && userInput <= 10)
+            if(userInput >= 1 && userInput <= numberOfThreads/2)
                 validInput = true;
             else
                  System.out.println("The input must be between 1-10.");
@@ -161,7 +178,7 @@ public class FindTheRedThread {
             }
         }
         setThreadArray();
-        chooseRedThread(20);
+        chooseRedThread(numberOfThreads);
         while(hasWinner == false){      //This keeps the turns switching until the red thread is found
             printThreads();
             userGuessThreads(userInput);
