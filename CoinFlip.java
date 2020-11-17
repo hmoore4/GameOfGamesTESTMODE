@@ -128,6 +128,12 @@ public class coinflip{
 		int result;
 		while(counter != 0 && !hasWinner){
 			result = flipResult();
+			if(result == 1){
+				System.out.println("The choice is heads");
+			}
+			else if(result == 2){
+				System.out.println("The choice is tails");
+			}
 			String userChoice = userguess();
 		if(userChoice.equals("heads")){
 			userGuessAsInt = 1;
