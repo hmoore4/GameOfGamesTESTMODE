@@ -86,6 +86,7 @@ public class CoinFlip{
   		if(guess == computerChoice){
   			System.out.println("You won this round!");
   			userCount++; 
+			
 
   		}else{
   			System.out.println("You lost this round :(");
@@ -102,8 +103,11 @@ public class CoinFlip{
   	System.out.println("Computer's Score: " + programCount);
   	if(userCount > programCount){
   		System.out.println("Congrats! You won the game!");
+		Scoreboard.userTotalScore++;
+		
   	}else{
   		System.out.println("Bummer! You lost. Try again next time.");
+		Scoreboard.computerTotalScore++;
   	}
   }
 
